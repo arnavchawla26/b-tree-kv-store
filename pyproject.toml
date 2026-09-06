@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "btreekv"
+version = "0.1.0"
+description = "An embedded key-value store built on a from-scratch on-disk B+Tree with WAL-based crash recovery"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pyflakes>=3.0"]
+bench = []
+
+[project.scripts]
+btreekv = "btreekv.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
